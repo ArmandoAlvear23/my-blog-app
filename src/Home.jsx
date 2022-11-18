@@ -6,6 +6,7 @@ const Home = () => {
     const [isLoading, setIsLoading] = useState(true);
 
     useEffect(() => {
+
         fetch('http://localhost:8000/blogs')
           .then(res => {
             return res.json();
@@ -13,6 +14,9 @@ const Home = () => {
           .then(data => {
             setBlogs(data);
             setIsLoading(false);
+          })
+          .catch(err => {
+            console.log(err.message);
           })
     }, []);
 
