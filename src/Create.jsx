@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { useNavigate } from "react-router-dom";
 
 const Create = () => {
 
@@ -6,6 +7,7 @@ const Create = () => {
   const [body, setBody] = useState('');
   const [author, setAuthor] = useState('Epona');
   const [isLoading, setIsLoading] = useState(false);
+  const navigate = useNavigate();
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -19,6 +21,7 @@ const Create = () => {
       console.log('new blog added');
       setIsLoading(false);
     })
+    navigate('/');
   }
 
   return (
